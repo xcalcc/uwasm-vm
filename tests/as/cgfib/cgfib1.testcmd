@@ -1,0 +1,8 @@
+trace a 0
+trace 14 0
+file /Users/xc5/Desktop/fib.out
+func 0
+sreg 2 0xa
+preg
+cexec
+q

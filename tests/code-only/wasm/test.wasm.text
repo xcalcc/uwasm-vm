@@ -1,0 +1,60 @@
+0000000: 0061 736d                                 ; WASM_BINARY_MAGIC
+0000004: 0100 0000                                 ; WASM_BINARY_VERSION
+; section "Type" (1)
+0000008: 01                                        ; section code
+0000009: 00                                        ; section size (guess)
+000000a: 02                                        ; num types
+; type 0
+000000b: 60                                        ; func
+000000c: 01                                        ; num params
+000000d: 7f                                        ; i32
+000000e: 00                                        ; num results
+; type 1
+000000f: 60                                        ; func
+0000010: 01                                        ; num params
+0000011: 7f                                        ; i32
+0000012: 01                                        ; num results
+0000013: 7f                                        ; i32
+0000009: 0a                                        ; FIXUP section size
+; section "Import" (2)
+0000014: 02                                        ; section code
+0000015: 00                                        ; section size (guess)
+0000016: 01                                        ; num imports
+; import header 0
+0000017: 07                                        ; string length
+0000018: 696d 706f 7274 73                        imports  ; import module name
+000001f: 0d                                        ; string length
+0000020: 696d 706f 7274 6564 5f66 756e 63         imported_func  ; import field name
+000002d: 00                                        ; import kind
+000002e: 00                                        ; import signature index
+0000015: 19                                        ; FIXUP section size
+; section "Function" (3)
+000002f: 03                                        ; section code
+0000030: 00                                        ; section size (guess)
+0000031: 01                                        ; num functions
+0000032: 01                                        ; function 0 signature index
+0000030: 02                                        ; FIXUP section size
+; section "Export" (7)
+0000033: 07                                        ; section code
+0000034: 00                                        ; section size (guess)
+0000035: 01                                        ; num exports
+0000036: 0d                                        ; string length
+0000037: 6578 706f 7274 6564 5f66 756e 63         exported_func  ; export name
+0000044: 00                                        ; export kind
+0000045: 01                                        ; export func index
+0000034: 11                                        ; FIXUP section size
+; section "Code" (10)
+0000046: 0a                                        ; section code
+0000047: 00                                        ; section size (guess)
+0000048: 01                                        ; num functions
+; function body 0
+0000049: 00                                        ; func body size (guess)
+000004a: 00                                        ; local decl count
+000004b: 20                                        ; local.get
+000004c: 00                                        ; local index
+000004d: 41                                        ; i32.const
+000004e: 2a                                        ; i32 literal
+000004f: 6a                                        ; i32.add
+0000050: 0b                                        ; end
+0000049: 07                                        ; FIXUP func body size
+0000047: 09                                        ; FIXUP section size

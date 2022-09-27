@@ -1,0 +1,10 @@
+trace 0xa 0
+trace 0x17 0
+trace 0x18 0
+trace 0x1a 10000
+file /Users/xc5/Desktop/fib.js.out
+func 1
+sreg 5 0x25
+preg
+cexec
+q

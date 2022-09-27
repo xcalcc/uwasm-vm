@@ -1,0 +1,11 @@
+.idea
+**/cmake-build-debug
+**/*~
+**/*.o
+**/*.out
+**/*.wasm.temp
+**/node_modules
+**/package.json
+**/package-lock.json
+**/*.log
+time.csv

@@ -1,0 +1,61 @@
+image: uwasm_test:latest
+
+stages:
+   - build
+   - test
+   - test_analyse
+
+build:
+  stage: build
+  script:
+    - ./ci/build.sh
+  artifacts:
+    paths:
+      - ./BUILD_FINISHED
+      - ./BASE_DIR
+      - ./STATUS
+      - ./out
+    when: always
+    expire_in: 24d
+
+ # cache:
+ #  key: mastiffbaseline
+ #  paths:
+ #   - ./build
+      
+# run tests using the binary built before
+
+test:
+  stage: test
+
+  script:
+    - ./ci/test.sh
+
+  dependencies:
+    - build
+
+  artifacts:
+    paths:
+      - ./BASE_DIR
+      - ./testresult
+      - ./STATUS
+
+# cache:
+#     key: mastiffbaseline
+#     paths:
+#         - ./build
+#     policy: pull        
+
+test_analyse:
+  stage: test_analyse
+  dependencies:
+    - test
+  artifacts:
+    paths:
+       - ./BASE_DIR
+       - ./STATUS
+       - ./testresult
+       - ./testreport
+  script:
+    - ./ci/analyze.sh 
+
